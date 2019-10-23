@@ -3,5 +3,6 @@ theme: readthedocs
 nav:
 - Home: 'index.md'
 - Django:
-    - 'RESTful': 'RESTView.md'
+    - 'RESTful的不同View类': 'RESTView.md'
+    - '三种Filter': 'Filter.md'
 

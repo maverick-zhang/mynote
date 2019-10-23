@@ -24,19 +24,19 @@
       
       - #### 第三层GenericAPIView(APIView)
       
-        其在APIView的基础上加入了queryset，serializer_class,  paginator_class，filter_backends(需要自己定义), lookup_field等属性，并且定义了相关的方法，从这些属性中获取到具体的查询集以及筛选，序列化和反序列化，分页类等。
+        其在APIView的基础上加入了queryset，serializer_class,  paginator_class，filter_backends(需要自己定义), lookup_field等属性，并且定义了相关的方法，从这些属性中获取到具体的查询集以及筛选，序列化和反序列化，分页类等。可以自己重写get_queryset()方法，从前段传入的过滤信息进行特定的筛选，并返回queryset，如果重写此方法，则不再需要设置queryset属性。其他的属性也类似，可以自己进行定制。
         
         
         
         通过继承GenericAPIView和CRUDL父类，即得到了以下：
         
-        ```
+        ```python
         CreateAPIView		#定义post()，在返回时调用继承的create()方法
         ListAPIView				#定义get()，返回时调用继承的list()方法。以下类类似。
         RetrieveAPIView
         DestroyAPIView
         UpdateAPIView
-        # 多方法继承
+         # 多方法继承
         ListCreateAPIView
         RetrieveUpdateAPIView
         RetrieveDestroyAPIView
@@ -53,8 +53,8 @@
         
              detail表示是collection还是单个对象
         
-             ```
-            @action(detail=True, methods=['post'], permission_classes=[IsAdminOrIsSelf])
+             ```python
+              @action(detail=True, methods=['post'], permission_classes=[IsAdminOrIsSelf])
              ```
         
           3. GenericViewSet实际上没有添加任何内容，该类的所有新特性都体现在了ViewSetMixin中
@@ -74,7 +74,7 @@
           
              通过对GenericViewSet和CRUDL父类的继承，得到以下的类
           
-             ```
+             ```python
              ReadOnlyModelViewSet  #包含list和retreieve
              ModelViewSet  #包含所有
              ```
