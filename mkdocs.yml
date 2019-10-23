@@ -1,0 +1,7 @@
+site_name: maverick-note
+theme: readthedocs
+nav:
+- Home: 'index.md'
+- Django:
+    - 'RESTful': 'RESTView.md'
+
