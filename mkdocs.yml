@@ -4,5 +4,5 @@ nav:
 - Home: 'index.md'
 - Django:
     - 'RESTful的不同View类': 'RESTView.md'
-    - '三种Filter': 'Filter.md'
+    - '三种Filter': 'filter.md'
 
