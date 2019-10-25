@@ -5,4 +5,8 @@ nav:
 - Django:
     - 'RESTful的不同View类': 'RESTView.md'
     - '三种Filter': 'filter.md'
+    - 'CROS': 'CROS.md'
+    - 'JWT用户认证': 'JWT用户认证.md'
+    - 'DRF的传统认证': 'DRF-Authentication.md'
+    
 
