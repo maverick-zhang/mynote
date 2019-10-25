@@ -45,72 +45,73 @@
         
         
         
-        - #### 第四层GenericViewSet(GenericAPIView,  ViewSetMixin）
+        #### 第四层GenericViewSet(GenericAPIView,  ViewSetMixin）
         
-          1. ViewSetMixin重写了as_view()，和initial_request()方法 ，对request method和action进行了映射，并且通过get_extra_action()方法获取通过装饰器（@action）自定义的action，并且进行了映射。
+        1. ViewSetMixin重写了as_view()，和initial_request()方法 ，对request method和action进行了映射，并且通过get_extra_action()方法获取通过装饰器（@action）自定义的action，并且进行了映射。
         
-          2. @action需要指定映射的request method
+        2. @action需要指定映射的request method
         
-             detail表示是collection还是单个对象
+           detail表示是collection还是单个对象
         
-             ```python
-              @action(detail=True, methods=['post'], permission_classes=[IsAdminOrIsSelf])
-             ```
+           ```python
+            @action(detail=True, methods=['post'], permission_classes=[IsAdminOrIsSelf])
+           ```
         
-          3. GenericViewSet实际上没有添加任何内容，该类的所有新特性都体现在了ViewSetMixin中
+        3. GenericViewSet实际上没有添加任何内容，该类的所有新特性都体现在了ViewSetMixin中
         
-          4. 其目的是 “to combine the logic for a set of related views in a single class”（官方原文），可以只写一次queryse，并且给不同的CRUDL使用
-          
-        5. 在对该视图类进行注册时，要使用router class进行注册，简化大量url的注册
-          
-           官方文档
-          
-           There are two main advantages of using a `ViewSet` class over using a `View` class.
-          
-             - Repeated logic can be combined into a single class. In the above example, we only need to specify the `queryset` once, and it'll be used across multiple views.
-             - By using routers, we no longer need to deal with wiring up the URL conf ourselves.
-          
+        4. 其目的是 “to combine the logic for a set of related views in a single class”（官方原文），可以只写一次queryse，并且给不同的CRUDL使用
+        
+         5. 在对该视图类进行注册时，要使用router class进行注册，简化大量url的注册
+        
+         官方文档
+        
+         There are two main advantages of using a `ViewSet` class over using a `View` class.
+        
+           - Repeated logic can be combined into a single class. In the above example, we only need to specify the `queryset` once, and it'll be used across multiple views.
+           - By using routers, we no longer need to deal with wiring up the URL conf ourselves.
+        
+         
+        
+           通过对GenericViewSet和CRUDL父类的继承，得到以下的类
+        
+        ```python
+           ReadOnlyModelViewSet  #包含list和retreieve
+           ModelViewSet  #包含所有
+        ```
+        
            
-          
-             通过对GenericViewSet和CRUDL父类的继承，得到以下的类
-          
-             ```python
-             ReadOnlyModelViewSet  #包含list和retreieve
-             ModelViewSet  #包含所有
-             ```
-          
-             
 
 
 
-- mixin模块(封装CRUDL)，在这里称其为CRUDL父类
-  - ListModelMixin(objext)
+### mixin模块(封装CRUDL)，在这里称其为CRUDL父类
+
+- ListModelMixin(objext)
+
+  定义了list()方法，获取一组序列化对象，返回Response([serializer.data], [status.XXX])
+
   
-    定义了list()方法，获取一组序列化对象，返回Response([serializer.data], [status.XXX])
+
+- CreateModelMixin(object)
+
+  定义了create(),和perform_create()，前者获取序列化对象，并进行is_valid验证，返回Response([serializer.data], [status.XXX]); 后者只是执行了save()操作
+
   
-    
+
+- RetrieveModelMixin(object)
+
+  定义了retreieve()方法，获得一个序列化对象, 返回Response([serializer.data], [status.XXX])
+
   
-  - CreateModelMixin(object)
+
+- UpdateModelMixin(object)
+
+  定义了update()和partial_updata()方法，以及perform_update()，前者返回Response([serializer.data], [status.XXX])
+
   
-    定义了create(),和perform_create()，前者获取序列化对象，并进行is_valid验证，返回Response([serializer.data], [status.XXX]); 后者只是执行了save()操作
-  
-    
-  
-  - RetrieveModelMixin(object)
-  
-    定义了retreieve()方法，获得一个序列化对象, 返回Response([serializer.data], [status.XXX])
-  
-    
-  
-  - UpdateModelMixin(object)
-  
-    定义了update()和partial_updata()方法，以及perform_update()，前者返回Response([serializer.data], [status.XXX])
-  
-    
-  
-  - DestroyModelMixin(object)
-  
-    定义了destroy()和perform_destroy()方法，前者返回Response([serializer.data], [status.XXX])
+
+- DestroyModelMixin(object)
+
+  定义了destroy()和perform_destroy()方法，前者返回Response([serializer.data], [status.XXX])
 
 ​          
 
