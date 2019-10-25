@@ -15,7 +15,7 @@ JSON Web Token
 
 包含使用的算法和JWT声明，使用Base64编码
 
-2. Playload
+2. Payload
 
    ```json
    {
@@ -53,4 +53,16 @@ JSON Web Token
 ### 第三方包：Django REST framework JWT
 
 [官方文档](https://jpadilla.github.io/django-rest-framework-jwt/)
+
+
+
+token生成函数：
+
+```python
+payload = jwt_payload_handler(user_model_instance)
+
+token = jwt_encode_handler(payload)
+```
+
+
 
