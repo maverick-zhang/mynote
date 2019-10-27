@@ -1,10 +1,7 @@
 site_name: maverick-note
 theme: readthedocs
-markdown_extensions:
-    - codehilite
 nav:
 - Home: 'index.md'
-    - 'test': 'test.md'
 - Django:
     - 'RESTful的不同View类': 'RESTView.md'
     - '三种Filter': 'filter.md'
