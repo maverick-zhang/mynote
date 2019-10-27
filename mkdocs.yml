@@ -1,5 +1,7 @@
 site_name: maverick-note
 theme: readthedocs
+markdown_extensions:
+    - codehilite
 nav:
 - Home: 'index.md'
     - 'test': 'test.md'
@@ -13,6 +15,8 @@ nav:
     - 'Permissions': 'Permissions.md'
     - 'django_filter': 'django_filter.md'
     - 'DRF的传统认证': 'DRF-Authentication.md'
+
+
 
 
 
