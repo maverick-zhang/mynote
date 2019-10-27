@@ -31,7 +31,7 @@
         通过继承GenericAPIView和CRUDL父类，即得到了以下：
         
         ```python
-        CreateAPIView		#定义post()，在返回时调用继承的create()方法
+        CreateAPIView = 	#定义post()，在返回时调用继承的create()方法
         ListAPIView				#定义get()，返回时调用继承的list()方法。以下类类似。
         RetrieveAPIView
         DestroyAPIView

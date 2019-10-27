@@ -76,7 +76,7 @@ instance为序列化的实例，若没有提供则位None, data为需要序列�
    ```python
    class UserSerializer(serializers.Serializer):
        email = serializers.EmailField()
-       username = serializers.CharField(max_length=100)
+       username = serializers.CharField(max_length=100)    
    
    class CommentSerializer(serializers.Serializer):
        user = UserSerializer()

@@ -2,6 +2,7 @@ site_name: maverick-note
 theme: readthedocs
 nav:
 - Home: 'index.md'
+- 'test': 'test.md'
 - Django:
     - 'RESTful的不同View类': 'RESTView.md'
     - '三种Filter': 'filter.md'
@@ -12,6 +13,8 @@ nav:
     - 'Permissions': 'Permissions.md'
     - 'django_filter': 'django_filter.md'
     - 'DRF的传统认证': 'DRF-Authentication.md'
+
+
 
     
 
