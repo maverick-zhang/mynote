@@ -85,9 +85,13 @@
 
 ### mixin模块(封装CRUDL)，在这里称其为CRUDL父类
 
+以下说有的类，在需要进行序列化时都会调用相应的get_serializer()方法，get_serializer()继续调用get_serializer_class()来获取获取序列化列，在ViewSet中如果需要多个Serializer类，可以重写get_serializer_class()，根据ViewSets中的action不同，返回不同的序列化类。
+
 - ListModelMixin(objext)
 
   定义了list()方法，获取一组序列化对象，返回Response([serializer.data], [status.XXX])
+
+  list()会调用get_queryset()如果需要自定义查询结果集，可以重载此方法
 
   
 
@@ -95,11 +99,15 @@
 
   定义了create(),和perform_create()，前者获取序列化对象，并进行is_valid验证，返回Response([serializer.data], [status.XXX]); 后者只是执行了save()操作
 
+  create()会调用is_valid()方法对数据进行验证，可以重载进行自定义认证
+
   
 
 - RetrieveModelMixin(object)
 
   定义了retreieve()方法，获得一个序列化对象, 返回Response([serializer.data], [status.XXX])
+
+  调用get_object()方法（和get_queryset()方法相对应）
 
   
 
@@ -107,11 +115,15 @@
 
   定义了update()和partial_updata()方法，以及perform_update()，前者返回Response([serializer.data], [status.XXX])
 
+  调用get_object()
+
   
 
 - DestroyModelMixin(object)
 
   定义了destroy()和perform_destroy()方法，前者返回Response([serializer.data], [status.XXX])
+  
+  调用get_object()
 
 ​          
 

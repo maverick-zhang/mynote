@@ -1,4 +1,4 @@
-# Filter
+# Filter Backends
 
 ### DjangoFilterBackends
 
@@ -113,7 +113,11 @@ search_fields = ('=name')
 
 - 同样是djangorestframework中自带的filter类
 
-  在View类中生命以下属性：
+  在View类中声明以下属性：
+  
+  ```python
+  filter_backends = (OrderingFilter,  )
+  ```
 
 
 

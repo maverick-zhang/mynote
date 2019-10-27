@@ -7,6 +7,11 @@ nav:
     - '三种Filter': 'filter.md'
     - 'CROS': 'CROS.md'
     - 'JWT用户认证': 'JWT用户认证.md'
+    - 'serializers': 'serializers.md'
+    - 'Serializer Relation': 'Serializer relations.md'
+    - 'Permissions': 'Permissions.md'
+    - 'django_filter': 'django_filter.md'
     - 'DRF的传统认证': 'DRF-Authentication.md'
+
     
 
