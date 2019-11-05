@@ -1,5 +1,7 @@
 # serializers
 
+序列化和反序列化：序列化即是把对象的数据转化为json格式，而反序列化即是把json的数据保存为model对象(以及对象的保存：保存到数据库)
+
 序列化的流程：传入的data首先保存在self.initial_data中(通过property装饰，其实是self._initial_data，validated_data也是如此)，序列化之前调用is_valid()对传入的数据进行验证（包括字段验证，对象验证，和可复用的验证器类，根据不同的需求进行自定义），验证不通过抛出serializers.ValidationError("error_msg")，会被自动捕获，返回给前端{"field_name": ["error_msg"]}以及HTTP_400，验证通过则数据会保存在self.validated_data中，然后再传入到create()或者update()方法中(这两个方法不一定不是必须，可以通过重写save()方法执行非数据库的保存更新等操作)
 
 ## Serializer(instance, data=, partial=, many=)
@@ -12,7 +14,7 @@ instance为序列化的实例，若没有提供则位None, data为需要序列�
 
 3. 在传入需要序列化的数据之后，在调用is_valid()方法之前，数据会存放在self.initial_data中
 
-4. 在进行序列化之前，需要调用is_valid()方法进行验证，验证通过之后，会把验证通过的数据存放到self.validated_data中
+4. 在进行序列化之前，需要调用is_valid()，该方法会执行validate()对各个字段进行正确性验证，需要重写该放阿飞确保能够进行正确的验证，方法进行验证，验证通过之后，会把验证通过的数据存放到self.validated_data中
 
 5. self.validated_data中包含了通过验证后的数据，同样是一个字典。
 
@@ -115,7 +117,7 @@ class AccountSerializer(serializers.ModelSerializer):
 - write_only   默认False，设置为Ture时，在返回给前段时不会序列化(前端只是作为展示，representation)，这样可以对字段进行一定的取舍，比如密码不应该再返回给前段，且一些没必要的字段如验证码，也不需要再返回给前段。如果设置为True，create和update要能够处理好该字段的序列化。
 - required       默认为Ture，要求必须传递该字段
 - validators    可以指定具体的验证函数或者验证器类
-- error_message    错误码和错误信息的字典
+- error_message    错误码和错误信息的字典，如erro_message = {"required": "必须提供该字段的信息", }
 - label    在HTML表单中的名称
 - help_text    在HTML表单中的描述文字
 - initial    提供给HTML表单中的初始值
@@ -123,10 +125,34 @@ class AccountSerializer(serializers.ModelSerializer):
 包含的fileds种类(常用的)：
 
 - BooleanField
+
 - CharField
+
 - IntergerField
+
 - FloatField
+
 - DateField
+
 - DateTimeField
+
+- SerializerMethodField   
+
+  通过定义的函数获取字段的value，通过使用这种字段可以在序列化时进行一些操作。
+
+  ```python
+  from django.contrib.auth.models import User
+  from django.utils.timezone import now
+  from rest_framework import serializers
+  
+  class UserSerializer(serializers.ModelSerializer):
+      days_since_joined = serializers.SerializerMethodField()
+  
+      class Meta:
+          model = User
+  
+      def get_days_since_joined(self, obj):
+          return (now() - obj.date_joined).day
+  ```
 
 [其他的见官方文档](https://q1mi.github.io/Django-REST-framework-documentation/api-guide/fields/)

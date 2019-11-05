@@ -49,7 +49,15 @@
         
         1. ViewSetMixin重写了as_view()，和initial_request()方法 ，对request method和action进行了映射，并且通过get_extra_action()方法获取通过装饰器（@action）自定义的action，并且进行了映射。
         
-        2. @action需要指定映射的request method
+        2. get_queryset()可以重写以获取自定义的查询协结果集
+        
+        3. get_serializer_class(), 获取serializer class，当viewset需要根据action的不同获取不同的Serializer。返回值为某个特定的序列化类。
+        
+        4. get_permissions()可以根据action的不同，配置不同的权限策略，返回值是权限类的实例化列表，如return [IsAuthenticated(), ]
+        
+        5. get_serializer_context()注意在这个方法中把request放入到了serializer中的context参数中，即Serializer(context={"request":xxx, "other_context":xxx})
+        
+        6. @action需要指定映射的request method
         
            detail表示是collection还是单个对象
         
@@ -57,11 +65,11 @@
             @action(detail=True, methods=['post'], permission_classes=[IsAdminOrIsSelf])
            ```
         
-        3. GenericViewSet实际上没有添加任何内容，该类的所有新特性都体现在了ViewSetMixin中
+        7. GenericViewSet实际上没有添加任何内容，该类的所有新特性都体现在了ViewSetMixin中
         
-        4. 其目的是 “to combine the logic for a set of related views in a single class”（官方原文），可以只写一次queryse，并且给不同的CRUDL使用
+        8. 其目的是 “to combine the logic for a set of related views in a single class”（官方原文），可以只写一次queryset，并且给不同的CRUDL使用
         
-         5. 在对该视图类进行注册时，要使用router class进行注册，简化大量url的注册
+         9. 在对该视图类进行注册时，要使用router class进行注册，简化大量url的注册
         
          官方文档
         

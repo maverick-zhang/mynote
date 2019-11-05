@@ -12,10 +12,6 @@ nav:
     - 'Permissions': 'Permissions.md'
     - 'django_filter': 'django_filter.md'
     - 'DRF的传统认证': 'DRF-Authentication.md'
-
-
-
-
-
-    
-
+    - 'DRF缓存和django-redis': 'DRF缓存和django-redis.md'
+    - '第三方登录': '第三方登录.md'
+    - 'Serializer Fields': 'Serializer Fields.md'

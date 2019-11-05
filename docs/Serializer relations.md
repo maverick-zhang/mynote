@@ -31,7 +31,7 @@ class TrackSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 class AlbumSerializer(serializers.ModelSerializer):
-    tracks = serializers.(many=True)
+    tracks = TrackSerializer(many=True)
 
     class Meta:
         model = Album
@@ -43,6 +43,8 @@ class AlbumSerializer(serializers.ModelSerializer):
 
 
 这样会获得从model的所有实例的所有字段的信息，以下可以只获得部分信息:
+
+但是需要指定queryset属性
 
 - StringRelatedField	获得从model中的实例\__str__信息
 
