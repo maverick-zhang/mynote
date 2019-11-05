@@ -18,6 +18,4 @@ nav:
     - 'DRF的传统认证': 'Django/DRF-Authentication.md'
     - 'DRF缓存和django-redis': 'Django/DRF缓存和django-redis.md'
 
-
-  -Flask:
     
