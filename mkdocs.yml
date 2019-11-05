@@ -1,17 +1,23 @@
 site_name: maverick-note
 theme: readthedocs
 nav:
-- Home: 'index.md'
-- Django:
-    - 'RESTful的不同View类': 'RESTView.md'
-    - '三种Filter': 'filter.md'
-    - 'CROS': 'CROS.md'
-    - 'JWT用户认证': 'JWT用户认证.md'
-    - 'serializers': 'serializers.md'
-    - 'Serializer Relation': 'Serializer relations.md'
-    - 'Permissions': 'Permissions.md'
-    - 'django_filter': 'django_filter.md'
-    - 'DRF的传统认证': 'DRF-Authentication.md'
-    - 'DRF缓存和django-redis': 'DRF缓存和django-redis.md'
-    - '第三方登录': '第三方登录.md'
-    - 'Serializer Fields': 'Serializer Fields.md'
+  - Home: 'index.md'
+
+
+  - Django:
+    - 'Serializer Fields': 'Django/Serializer Fields.md'
+    - '第三方登录': 'Django/第三方登录.md'
+    - 'RESTful的不同View类': 'Django/RESTView.md'
+    - '三种Filter': 'Django/filter.md'
+    - 'CROS': 'Django/CROS.md'
+    - 'JWT用户认证': 'Django/JWT用户认证.md'
+    - 'serializers': 'Django/serializers.md'
+    - 'Serializer Relation': 'Django/Serializer relations.md'
+    - 'Permissions': 'Django/Permissions.md'
+    - 'django_filter': 'Django/django_filter.md'
+    - 'DRF的传统认证': 'Django/DRF-Authentication.md'
+    - 'DRF缓存和django-redis': 'Django/DRF缓存和django-redis.md'
+
+
+  -Flask:
+    
