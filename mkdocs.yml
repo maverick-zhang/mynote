@@ -18,4 +18,38 @@ nav:
     - 'DRF的传统认证': 'Django/DRF-Authentication.md'
     - 'DRF缓存和django-redis': 'Django/DRF缓存和django-redis.md'
 
-    
+  - Flask:
+    - 'flask-RESTful Request': 'Flask/flask-RESTful Request.md'
+    - 'flask-RESTful': 'Flask/flask-RESTful.md'
+
+  - C++对象模型:
+    - '类和对象占用的空间': 'C++对象模型/类和对象占用的空间.md'
+    - '类的构造': 'C++对象模型/类的构造.md'
+
+  - C++多线程:
+    - 'mutex互斥量': 'C++多线程/mutex互斥量.md'
+    - 'shared_future和atomic': 'C++多线程/shared_future和atomic.md'
+    - '条件变量stdcondition_variable': 'C++多线程/条件变量stdcondition_variable.md'
+    - 'stdasync和stdfuture': 'C++多线程/stdasync和stdfuture.md'
+    - '单例设计模式': 'C++多线程/单例设计模式.md'
+    - '内存泄露检查工具': 'C++多线程/内存泄露检查工具.md'
+
+  - unix网络编程:
+    - 'listen监听队列': 'unix网络编程/listen监听队列.md'
+    - 'fork()函数': 'unix网络编程/fork()函数.md'
+    - '守护进程': 'unix网络编程/守护进程.md'
+    - '文件描述符file descriptor(fd)': 'unix网络编程/文件描述符file descriptor(fd).md'
+    - '文件IO': 'unix网络编程/文件IO.md'
+    - 'IO复用': 'unix网络编程/IO复用.md'
+    - '信号': 'unix网络编程/信号.md'
+    - 'epoll': 'unix网络编程/epoll.md'
+    - 'TCP粘包': 'unix网络编程/TCP粘包.md'
+    - 'wireshark': 'unix网络编程/wireshark.md'
+
+  - libevent:
+    - '事件event处理': 'libevent/事件event处理.md'
+    - 'libevent接口': 'libevent/libevent接口.md'
+    - 'event loop': 'libevent/event loop.md'
+    - 'bufferevent filter': 'libevent/bufferevent filter.md'
+    - 'bufferevent': 'libevent/bufferevent.md'
+
