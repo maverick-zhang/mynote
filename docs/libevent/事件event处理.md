@@ -1,17 +1,20 @@
 ## 事件event处理
 
-![2020-02-17 17-55-04屏幕截图](/home/maverick/%E5%9B%BE%E7%89%87/2020-02-17%2017-55-04%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png)
+![2020-02-17 17-55-04屏幕截图](../static/2020-02-17 17-55-04屏幕截图.png)
 
 - 已初始化（initialized）
+  
   - 调用event_new之后
 - 待决（pending）
   - 调用event_add之后
     - 只有此状态才会调用事件回调
 - 激活（active）
+  
   - 事件发生，包括超时事件
 - 持久的（persistent）
-  - 如果没设置持久每次事件函数调用后，状态就变味非待决，也就收不到事件了，需要再次调用event_add
-
+  
+- 如果没设置持久每次事件函数调用后，状态就变味非待决，也就收不到事件了，需要再次调用event_add
+  
 - ### event *event_new(struct event_base *base, evutil_socket_t fd,short what, event_callback_fn cb,void *arg);
 
 - event_base *base
