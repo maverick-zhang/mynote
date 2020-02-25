@@ -23,6 +23,9 @@ nav:
     - 'flask-RESTful': 'Flask/flask-RESTful.md'
 
   - C++对象模型:
+    - '类成员变量': 'C++对象模型/类成员变量.md'
+    - '虚函数': 'C++对象模型/虚函数.md'
+    - '成员初始化列表': 'C++对象模型/成员初始化列表.md'
     - '类和对象占用的空间': 'C++对象模型/类和对象占用的空间.md'
     - '类的构造': 'C++对象模型/类的构造.md'
 
@@ -47,6 +50,8 @@ nav:
     - 'wireshark': 'unix网络编程/wireshark.md'
 
   - libevent:
+    - 'FTPServer': 'libevent/FTPServer.md'
+    - 'FTP协议': 'libevent/FTP协议.md'
     - '事件event处理': 'libevent/事件event处理.md'
     - 'libevent接口': 'libevent/libevent接口.md'
     - 'event loop': 'libevent/event loop.md'
