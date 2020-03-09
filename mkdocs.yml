@@ -5,6 +5,7 @@ nav:
 
 
   - Django:
+    - 'django xadmin': 'Django/django xadmin.md'
     - 'Serializer Fields': 'Django/Serializer Fields.md'
     - '第三方登录': 'Django/第三方登录.md'
     - 'RESTful的不同View类': 'Django/RESTView.md'
@@ -23,6 +24,11 @@ nav:
     - 'flask-RESTful': 'Flask/flask-RESTful.md'
 
   - C++对象模型:
+    - '静态和动态': 'C++对象模型/静态和动态.md'
+    - '内存高级': 'C++对象模型/内存高级.md'
+    - '虚基类': 'C++对象模型/虚基类.md'
+    - '对象的构造': 'C++对象模型/对象的构造.md'
+    - '成员函数': 'C++对象模型/成员函数.md'
     - '类成员变量': 'C++对象模型/类成员变量.md'
     - '虚函数': 'C++对象模型/虚函数.md'
     - '成员初始化列表': 'C++对象模型/成员初始化列表.md'
